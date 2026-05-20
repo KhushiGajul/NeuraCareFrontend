@@ -166,7 +166,7 @@ const Video = () => {
           return;
         }
 
-        const response = await axios.get(`http://localhost:5000/api/users/${userId}`);
+        const response = await axios.get(`https://neuracarebackend.onrender.com/api/users/${userId}`);
         let rawTags = response.data.tags;
         let parsedTags = [];
 

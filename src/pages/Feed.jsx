@@ -79,7 +79,7 @@ const Feed = () => {
           return;
         }
 
-        const userResponse = await axios.get(`http://localhost:5000/api/users/${userId}`);
+        const userResponse = await axios.get(`https://neuracarebackend.onrender.com/api/users/${userId}`);
         let rawTags = userResponse.data.tags;
         let parsedTags = [];
 
@@ -124,7 +124,7 @@ const Feed = () => {
       // Fetch news from the local proxy backend to completely bypass CORS policy blocks
       try {
         const response = await fetch(
-          `http://localhost:5000/api/news?q=${encodeURIComponent(query)}`
+          `https://neuracarebackend.onrender.com/api/news?q=${encodeURIComponent(query)}`
         );
         if (response.ok) {
           data = await response.json();
@@ -183,7 +183,7 @@ const Feed = () => {
         if (!isSubscribed) break;
 
         try {
-          const res = await fetch(`http://localhost:5000/api/news/details?uuid=${article.uuid}`);
+          const res = await fetch(`https://neuracarebackend.onrender.com/api/news/details?uuid=${article.uuid}`);
 
           if (res.ok) {
             const detailData = await res.json();
@@ -231,7 +231,7 @@ const Feed = () => {
     }
 
     try {
-      const res = await fetch(`http://localhost:5000/api/news/details?uuid=${article.uuid}`);
+      const res = await fetch(`https://neuracarebackend.onrender.com/api/news/details?uuid=${article.uuid}`);
 
       if (res.ok) {
         const detailData = await res.json();

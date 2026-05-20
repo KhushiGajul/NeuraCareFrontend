@@ -18,7 +18,7 @@ const DoctorDashboard = () => {
       }
       
       try {
-        const res = await axios.get(`http://localhost:5000/api/doctors/${userId}`);
+        const res = await axios.get(`https://neuracarebackend.onrender.com/api/doctors/${userId}`);
         setDoctorData(res.data);
       } catch (err) {
         console.error(err);

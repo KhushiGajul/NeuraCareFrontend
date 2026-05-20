@@ -37,7 +37,7 @@ const ChatAI = () => {
         return;
       }
       try {
-        const res = await axios.get(`http://localhost:5000/api/users/${userId}`);
+        const res = await axios.get(`https://neuracarebackend.onrender.com/api/users/${userId}`);
         setUserData(res.data);
       } catch (err) {
         console.error(err);

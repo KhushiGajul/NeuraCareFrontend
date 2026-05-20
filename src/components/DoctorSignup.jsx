@@ -25,7 +25,7 @@ const DoctorSignup = () => {
         password: data.password
       };
       
-      const response = await axios.post('http://localhost:5000/api/doctors/signup', payload);
+      const response = await axios.post('https://neuracarebackend.onrender.com/api/doctors/signup', payload);
       console.log('Doctor Signup Success:', response.data);
       alert('Clinical account created successfully!');
       navigate('/doctor-login');

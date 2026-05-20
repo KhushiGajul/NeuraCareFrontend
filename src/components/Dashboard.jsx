@@ -42,7 +42,7 @@ const Dashboard = () => {
         return;
       }
       try {
-        const res = await axios.get(`http://localhost:5000/api/users/${userId}`);
+        const res = await axios.get(`https://neuracarebackend.onrender.com/api/users/${userId}`);
         setUserData(res.data);
         
         // Initialize functional states
@@ -83,7 +83,7 @@ const Dashboard = () => {
         tags: updateForm.tags
       };
       
-      await axios.put('http://localhost:5000/api/users/profile', payload, {
+      await axios.put('https://neuracarebackend.onrender.com/api/users/profile', payload, {
         headers: { 'user-id': userId }
       });
       

@@ -34,7 +34,7 @@ const Query = () => {
   const fetchInbox = async () => {
     if (!doctorId) return;
     try {
-      const res = await axios.get(`http://localhost:5000/api/contacts/doctor/${doctorId}`);
+      const res = await axios.get(`https://neuracarebackend.onrender.com/api/contacts/doctor/${doctorId}`);
       
       // Group raw messages by user_id to form distinct conversations
       const conversationsMap = {};
@@ -80,7 +80,7 @@ const Query = () => {
 
     const fetchHistory = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/contacts/history?user_id=${selectedConversation.userId}&doctor_id=${doctorId}`);
+        const res = await axios.get(`https://neuracarebackend.onrender.com/api/contacts/history?user_id=${selectedConversation.userId}&doctor_id=${doctorId}`);
         setChatHistory(res.data);
       } catch (err) {
         console.error('Error fetching conversation history:', err);
@@ -110,12 +110,12 @@ const Query = () => {
     };
 
     try {
-      await axios.post('http://localhost:5000/api/contacts', payload);
+      await axios.post('https://neuracarebackend.onrender.com/api/contacts', payload);
       setReplyMessage('');
       
       // Instantly refresh thread and conversation status indicators
       const [histRes] = await Promise.all([
-        axios.get(`http://localhost:5000/api/contacts/history?user_id=${selectedConversation.userId}&doctor_id=${doctorId}`),
+        axios.get(`https://neuracarebackend.onrender.com/api/contacts/history?user_id=${selectedConversation.userId}&doctor_id=${doctorId}`),
         fetchInbox()
       ]);
       setChatHistory(histRes.data);

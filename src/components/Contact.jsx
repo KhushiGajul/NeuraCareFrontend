@@ -34,7 +34,7 @@ const Contact = () => {
 
     const fetchDoctors = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/doctors');
+        const res = await axios.get('https://neuracarebackend.onrender.com/api/doctors');
         // Filter out admins from the doctor list
         const filteredDoctors = res.data.filter(doc => doc.role === 'doctor');
         setDoctors(filteredDoctors);
@@ -57,7 +57,7 @@ const Contact = () => {
     const fetchHistory = async () => {
       setHistoryLoading(true);
       try {
-        const res = await axios.get(`http://localhost:5000/api/contacts/history?user_id=${userId}&doctor_id=${selectedDoctor.id}`);
+        const res = await axios.get(`https://neuracarebackend.onrender.com/api/contacts/history?user_id=${userId}&doctor_id=${selectedDoctor.id}`);
         setChatHistory(res.data);
       } catch (err) {
         console.error('Error fetching history:', err);
@@ -89,10 +89,10 @@ const Contact = () => {
     };
 
     try {
-      await axios.post('http://localhost:5000/api/contacts', payload);
+      await axios.post('https://neuracarebackend.onrender.com/api/contacts', payload);
       setMessage('');
       // Optimistically fetch chat log immediately
-      const res = await axios.get(`http://localhost:5000/api/contacts/history?user_id=${userId}&doctor_id=${selectedDoctor.id}`);
+      const res = await axios.get(`https://neuracarebackend.onrender.com/api/contacts/history?user_id=${userId}&doctor_id=${selectedDoctor.id}`);
       setChatHistory(res.data);
     } catch (err) {
       console.error('Error sending query:', err);

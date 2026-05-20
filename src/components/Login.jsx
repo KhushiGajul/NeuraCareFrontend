@@ -40,7 +40,7 @@ const Login = () => {
     setForgotError('');
     setForgotLoading(true);
     try {
-        await axios.post('http://localhost:5000/api/email/send-otp', { email: forgotEmail, role: 'user' });
+        await axios.post('https://neuracarebackend.onrender.com/api/email/send-otp', { email: forgotEmail, role: 'user' });
         setForgotStep(2);
     } catch (error) {
         setForgotError(error.response?.data?.error || 'Failed to send OTP.');
@@ -58,7 +58,7 @@ const Login = () => {
     setForgotError('');
     setForgotLoading(true);
     try {
-        await axios.post('http://localhost:5000/api/email/verify-otp', { email: forgotEmail, otp: forgotOtp });
+        await axios.post('https://neuracarebackend.onrender.com/api/email/verify-otp', { email: forgotEmail, otp: forgotOtp });
         setForgotStep(3);
     } catch (error) {
         setForgotError(error.response?.data?.error || 'Invalid OTP.');
@@ -83,7 +83,7 @@ const Login = () => {
     setForgotError('');
     setForgotLoading(true);
     try {
-        await axios.post('http://localhost:5000/api/email/reset-password', { 
+        await axios.post('https://neuracarebackend.onrender.com/api/email/reset-password', { 
             email: forgotEmail, 
             otp: forgotOtp, 
             newPassword: forgotNewPassword, 
@@ -100,7 +100,7 @@ const Login = () => {
 
   const onSubmit = async(data) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/users/login', data);
+      const response = await axios.post('https://neuracarebackend.onrender.com/api/users/login', data);
       const user = response.data.user;
       
       // Save session info

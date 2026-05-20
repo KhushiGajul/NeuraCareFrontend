@@ -24,7 +24,7 @@ const Signup = () => {
         password: data.password
       };
       
-      const response = await axios.post('http://localhost:5000/api/users/signup', payload);
+      const response = await axios.post('https://neuracarebackend.onrender.com/api/users/signup', payload);
       console.log('Signup Success:', response.data);
       alert('Signup successful!');
       
